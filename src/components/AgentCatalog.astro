@@ -1,0 +1,69 @@
+---
+import { agentCategories, pantryAgents, type AgentCategory } from "../lib/agents";
+
+interface Props {
+  limit?: number;
+  showCategories?: boolean;
+  compact?: boolean;
+}
+
+const { limit, showCategories = true, compact = false } = Astro.props;
+
+const agents = limit ? pantryAgents.slice(0, limit) : pantryAgents;
+const demoHref = "mailto:hello@topseer.tech?subject=Agent%20inquiry";
+
+function agentsInCategory(category: AgentCategory) {
+  return agents.filter((a) => a.category === category);
+}
+---
+
+<div class:list={["catalog", compact && "catalog--compact"]}>
+  {
+    showCategories ? (
+      agentCategories.map((category) => {
+        const group = agentsInCategory(category);
+        if (!group.length) return null;
+        return (
+          <section class="catalog__group">
+            <h3 class="catalog__category">{category}</h3>
+            <ul class="catalog__grid">
+              {group.map((agent) => (
+                <li>
+                  <article class="agent-card">
+                    <div class="agent-card__head">
+                      <h4 class="agent-card__name">{agent.name}</h4>
+                      <span class="agent-card__version">frozen@{agent.frozenVersion}</span>
+                    </div>
+                    <p class="agent-card__tagline">{agent.tagline}</p>
+                    <p class="agent-card__body">{agent.description}</p>
+                    <a
+                      class="agent-card__link"
+                      href={`${demoHref}&body=Interested%20in%20${encodeURIComponent(agent.name)}`}
+                    >
+                      Ask about this agent →
+                    </a>
+                  </article>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })
+    ) : (
+      <ul class="catalog__grid">
+        {agents.map((agent) => (
+          <li>
+            <article class="agent-card">
+              <div class="agent-card__head">
+                <h4 class="agent-card__name">{agent.name}</h4>
+                <span class="agent-card__version">frozen@{agent.frozenVersion}</span>
+              </div>
+              <p class="agent-card__tagline">{agent.tagline}</p>
+              <p class="agent-card__body">{agent.description}</p>
+            </article>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</div>

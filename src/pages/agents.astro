@@ -1,0 +1,33 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import AgentCatalog from "../components/AgentCatalog.astro";
+
+const demoHref = "mailto:hello@topseer.tech?subject=Agent%20Pantry%20inquiry";
+---
+
+<MarketingLayout
+  title="Agents"
+  description="Topseer Agent Pantry — pre-cooked enterprise AI agents: voice, video, central brain, prediction, orchestration, and AI monitoring."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow eyebrow--light">Agent Pantry</p>
+      <h1 class="display display--light">Pre-cooked agents, <em>frozen</em> for production</h1>
+      <p class="lead">
+        Each agent in the pantry is scoped to a real enterprise capability — pick one, connect your
+        systems, operate at a pinned release.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="shell">
+      <AgentCatalog />
+
+      <div class="btn-row" style="margin-top: 2rem;">
+        <a class="btn btn--dark" href={demoHref}>Ask about the pantry</a>
+        <a class="btn btn--outline" href="/platform/">Platform overview</a>
+      </div>
+    </div>
+  </section>
+</MarketingLayout>

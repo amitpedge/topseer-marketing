@@ -1,0 +1,24 @@
+/*
+ * Topseer design tokens — from docs/design.md
+ */
+:root {
+  --petrol: #1f3a3d;
+  --teal-muted: #5e7c7b;
+  --copper: #b87333;
+  --rust: #c8613a;
+  --cream: #f7f0dd;
+  --white: #ffffff;
+  --ink: #1f3a3d;
+  --muted: #6e7a78;
+  --hairline: #ded9cc;
+  --teal-wash: #e6edec;
+  --on-dark: #f7f0dd;
+
+  --font-display: "Merriweather", Georgia, "Times New Roman", serif;
+  --font-body: "Barlow", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --shell: 70rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --radius-soft: 0.5rem;
+}

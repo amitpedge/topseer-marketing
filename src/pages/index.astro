@@ -1,0 +1,153 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import ArchitectureDiagram from "../components/ArchitectureDiagram.astro";
+import AgentCatalog from "../components/AgentCatalog.astro";
+
+const demoHref = "mailto:hello@topseer.tech?subject=Demo%20request";
+
+const capabilities = [
+  {
+    lead: true,
+    k: "Connectors",
+    title: "Plug into what you already run",
+    body: "Integrate with ERP, CRM, HRIS, ticketing, and messaging — without ripping out systems of record.",
+  },
+  {
+    k: "Governance",
+    title: "Frozen at the version you approve",
+    body: "Agents ship as pinned releases. Roll forward deliberately — no silent model drift in production.",
+  },
+  {
+    k: "Deploy",
+    title: "Your cloud, your rules",
+    body: "Run in your VPC or managed cloud. Observability, audit logs, and RBAC built in from day one.",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Pick",
+    body: "Choose a pre-cooked agent from the pantry — scoped to a workflow, not a blank canvas.",
+  },
+  {
+    n: "02",
+    title: "Connect",
+    body: "Wire your systems through the Topseer layer. Credentials stay in your boundary.",
+  },
+  {
+    n: "03",
+    title: "Operate",
+    body: "Deploy to chat, API, or internal tools. Monitor, version, and roll back with confidence.",
+  },
+];
+---
+
+<MarketingLayout
+  title="Topseer — pre-cooked AI agents"
+  description="Pre-cooked AI agents for enterprise. Frozen at the version you approve — deploy without six-month pilots."
+  ogTitle="Topseer — pre-cooked AI agents"
+>
+  <section class="hero">
+    <svg class="hero__mark" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <path d="M60 18 L95 95 H25 Z" stroke="#F7F0DD" stroke-width="8" stroke-linejoin="round" />
+      <circle cx="60" cy="18" r="10" fill="#C8613A" />
+    </svg>
+    <div class="shell hero__shell">
+      <p class="eyebrow eyebrow--light">Enterprise AI agents</p>
+      <h1 class="display display--light">
+        pre-cooked <em>AI agents</em>
+      </h1>
+      <span class="hero__sub">Frozen at the version you approve.</span>
+      <p class="lead lead--light">
+        Topseer gives enterprises production-ready agents on a governed platform — pick, connect,
+        and operate without starting another pilot from scratch.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--solid" href={demoHref}>Book a demo</a>
+        <a class="btn btn--ghost" href="/platform/">See the platform</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream" id="platform">
+    <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow">The platform</p>
+        <h2 class="display">Your systems → Topseer → <em>agents</em></h2>
+        <p class="lead">
+          A horizontal layer that connects enterprise systems, enforces governance, and serves
+          pre-cooked agents to the interfaces your teams already use.
+        </p>
+      </div>
+
+      <ArchitectureDiagram />
+
+      <div class="platform-grid">
+        <article class="capability capability--lead">
+          <span class="capability__k">Platform layer</span>
+          <h3>One stack for every agent</h3>
+          <p>
+            Connectors, policy, observability, and deployment — shared infrastructure so each agent
+            doesn't reinvent the plumbing.
+          </p>
+        </article>
+        <div class="capability-stack">
+          {
+            capabilities.slice(1).map((c) => (
+              <article class="capability">
+                <span class="capability__k">{c.k}</span>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="pantry">
+    <div class="shell">
+      <div class="section-head section-head--center">
+        <p class="eyebrow">Agent Pantry</p>
+        <h2 class="display">Pre-cooked. <em>Catalogued.</em> Ready.</h2>
+        <p class="lead">
+          A library of enterprise agents — each scoped, tested, and frozen at a release you approve.
+        </p>
+      </div>
+
+      <AgentCatalog limit={6} />
+
+      <p class="catalog__foot">
+        <a href="/agents/">View full Agent Pantry →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--light">How it works</p>
+        <h2 class="display display--light">Pick → Connect → <em>Operate</em></h2>
+        <p class="lead lead--light">
+          Stop starting pilots. Start deploying agents that stay pinned to the version you signed off
+          on.
+        </p>
+      </div>
+      <div class="steps">
+        {steps.map((s) => (
+          <article class="step">
+            <span class="step__n">{s.n}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </article>
+        ))}
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--solid" href={demoHref}>Book a demo</a>
+        <a class="btn btn--ghost" href="/agents/">Agent Pantry</a>
+      </div>
+    </div>
+  </section>
+</MarketingLayout>

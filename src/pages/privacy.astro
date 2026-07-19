@@ -1,0 +1,43 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+
+const updated = new Intl.DateTimeFormat("en-IN", { dateStyle: "long" }).format(
+  new Date("2026-07-19")
+);
+---
+
+<MarketingLayout
+  title="Privacy"
+  description="Privacy policy for the Topseer marketing website at topseer.tech."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow eyebrow--light">Legal</p>
+      <h1 class="display display--light">Privacy</h1>
+      <p class="lead">A plain-language summary for visitors to topseer.tech.</p>
+    </div>
+  </section>
+
+  <section class="section page-body page-body--cream">
+    <div class="shell prose">
+      <p><em>Last updated: {updated}</em></p>
+
+      <h2>This website</h2>
+      <p>
+        Pages on topseer.tech are mostly static. We may use standard analytics to understand traffic
+        and improve content. Those tools may set cookies according to their own policies.
+      </p>
+
+      <h2>Client documentation</h2>
+      <p>
+        Unlisted pages under <code>/clients/</code> are shared directly with specific clients. They
+        are marked <code>noindex</code> and excluded from our sitemap. This privacy policy covers the
+        public marketing site only.
+      </p>
+
+      <h2>Contact</h2>
+      <p>Privacy questions:</p>
+      <a class="contact-email" href="mailto:hello@topseer.tech">hello@topseer.tech</a>
+    </div>
+  </section>
+</MarketingLayout>

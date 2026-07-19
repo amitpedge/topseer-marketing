@@ -1,0 +1,34 @@
+---
+description: Masthead layout grid, gutters, and icon rules for Topseer marketing nav
+globs: src/components/HomeNav.astro,src/styles/home.css,src/styles/tokens.css
+alwaysApply: false
+---
+
+# Topseer masthead
+
+Before editing the header, read `.cursor/skills/frontend-design/topseer-brand.md` (Masthead section).
+
+## Layout contract
+
+- **One left rail:** logo, sub-nav links, and `.hero__lede` share the same `--gutter` inset. Do not center sub-nav while logo is left-aligned.
+- **Desktop row 1:** CSS grid `minmax(0,1fr) auto minmax(0,1fr)` on `.masthead__bar` — logo start | exam tabs center | utility end. Never use dual `flex: 1` to fake centering.
+- **Desktop row 2:** sub-nav `justify-content: flex-start` under the logo rail.
+- **Mobile row 1:** fixed-height icon row (`--masthead-row`): `[menu][logo][user]`, vertically centered.
+- **Mobile row 2:** exam tabs span full grid width on **row 2** of the same grid — never `flex-wrap` exam tabs inside the icon row.
+- **Icons:** borderless ghost buttons (`--masthead-icon` hit area). Padding lives on the shell (`--gutter`), not on boxed borders at the viewport edge.
+
+## Markup order (`.masthead__bar` children)
+
+1. `masthead__menu-btn`
+2. `masthead__brand`
+3. `exam-tabs`
+4. `masthead__utility`
+
+Grid placement is CSS-only; do not reorder for mobile.
+
+## Do not
+
+- Center sub-nav when logo is left-aligned
+- Put bordered 40px boxes flush against the gutter edge
+- Wrap exam tabs into the icon row via flex-wrap
+- Introduce a second horizontal padding system for the masthead

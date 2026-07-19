@@ -1,0 +1,41 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+
+const email = "hello@topseer.tech";
+---
+
+<MarketingLayout
+  title="Contact"
+  description="Contact Topseer — demo requests, partnerships, and general inquiries."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow eyebrow--light">Contact</p>
+      <h1 class="display display--light">Book a <em>demo</em></h1>
+      <p class="lead">
+        Tell us about your stack and the workflow you want an agent for. We'll show you what's
+        pre-cooked — and how fast you can operate it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section page-body page-body--cream">
+    <div class="shell prose">
+      <h2>Email</h2>
+      <p>For demo requests, partnerships, and press:</p>
+      <a class="contact-email" href={`mailto:${email}?subject=Demo%20request`}>{email}</a>
+
+      <h2>What to include</h2>
+      <ul>
+        <li>Company name and industry</li>
+        <li>Systems you need an agent to work with (ERP, CRM, HRIS, etc.)</li>
+        <li>The workflow or department you're targeting</li>
+        <li>Deployment preference (VPC, cloud region, on-prem)</li>
+      </ul>
+
+      <p>
+        <em>We read every message. Response times vary; we typically reply within a few business days.</em>
+      </p>
+    </div>
+  </section>
+</MarketingLayout>

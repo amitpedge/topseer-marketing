@@ -1,0 +1,38 @@
+---
+import ClientDocLayout from "../../../layouts/ClientDocLayout.astro";
+
+const client = "zen";
+const clientLabel = "Zen";
+
+const docs = [
+  { href: `/clients/${client}/doc-1/`, label: "Doc 1" },
+  { href: `/clients/${client}/doc-2/`, label: "Doc 2" },
+];
+---
+
+<ClientDocLayout
+  title="Index"
+  description="Documentation index for Zen."
+  client={client}
+  clientLabel={clientLabel}
+  docs={docs}
+>
+  <p class="client__eyebrow">Client documentation</p>
+  <h2 class="client__title">Welcome</h2>
+  <p class="client__lead">
+    Shared documentation for {clientLabel}. Select a document below.
+  </p>
+
+  <ul class="client__index-list">
+    {
+      docs.map((doc) => (
+        <li>
+          <a class="client__index-link" href={doc.href}>
+            {doc.label}
+            <span>Open document →</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</ClientDocLayout>

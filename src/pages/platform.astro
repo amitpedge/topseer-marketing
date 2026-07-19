@@ -1,0 +1,75 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import ArchitectureDiagram from "../components/ArchitectureDiagram.astro";
+
+const demoHref = "mailto:hello@topseer.tech?subject=Demo%20request";
+
+const pillars = [
+  {
+    k: "Connectors",
+    title: "Systems of record, connected",
+    body: "Reach into ERP, CRM, HRIS, data warehouses, and ticketing without custom glue code for every agent. The platform normalises access so agents focus on the workflow.",
+  },
+  {
+    k: "Governance",
+    title: "Policy before autonomy",
+    body: "Role-based access, approval gates, and pinned model versions. Every agent runs against rules your security and compliance teams can inspect.",
+  },
+  {
+    k: "Observability",
+    title: "See what agents did — and why",
+    body: "Structured logs, traceable decisions, and release metadata. When something changes, you know which frozen version was live.",
+  },
+  {
+    k: "Deployment",
+    title: "Where your data already lives",
+    body: "Deploy inside your VPC, managed cloud, or hybrid. Push agents to chat surfaces, internal portals, or APIs — same pantry, different interfaces.",
+  },
+];
+---
+
+<MarketingLayout
+  title="Platform"
+  description="The Topseer platform — connectors, governance, observability, and deployment for pre-cooked enterprise AI agents."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow eyebrow--light">Platform</p>
+      <h1 class="display display--light">The layer beneath every <em>agent</em></h1>
+      <p class="lead">
+        Topseer is not a chatbot builder. It's the horizontal stack that connects your enterprise,
+        governs agent behaviour, and serves pre-cooked agents at pinned versions.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--solid" href={demoHref}>Book a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="shell">
+      <ArchitectureDiagram />
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow">Capabilities</p>
+        <h2 class="display">Built for production, not <em>demos</em></h2>
+      </div>
+
+      <div class="capability-stack">
+        {
+          pillars.map((p) => (
+            <article class="capability">
+              <span class="capability__k">{p.k}</span>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</MarketingLayout>

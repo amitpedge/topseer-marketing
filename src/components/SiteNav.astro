@@ -1,0 +1,50 @@
+---
+const links = [
+  { href: "/platform/", label: "Platform" },
+  { href: "/agents/", label: "Agents" },
+  { href: "/about/", label: "About" },
+  { href: "/contact/", label: "Contact" },
+];
+
+const currentPath = Astro.url.pathname;
+const demoHref = "mailto:hello@topseer.tech?subject=Demo%20request";
+---
+
+<header class="nav">
+  <div class="shell nav__inner">
+    <a class="nav__brand" href="/" aria-label="Topseer home">
+      <img src="/topseer-monogram.png" alt="" width="32" height="32" />
+      <span class="nav__brand-text">Topseer</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      {
+        links.map(({ href, label }) => (
+          <a
+            class="nav__link"
+            href={href}
+            aria-current={currentPath === href ? "page" : undefined}
+          >
+            {label}
+          </a>
+        ))
+      }
+      <a class="nav__cta" href={demoHref}>Book a demo</a>
+    </nav>
+
+    <a class="nav__cta" href={demoHref} style="display: flex;">Demo</a>
+  </div>
+</header>
+
+<style>
+  @media (min-width: 768px) {
+    .nav__inner > .nav__cta:last-child {
+      display: none !important;
+    }
+  }
+  @media (max-width: 767px) {
+    .nav__inner > .nav__cta:last-child {
+      padding-inline: 0.75rem;
+    }
+  }
+</style>

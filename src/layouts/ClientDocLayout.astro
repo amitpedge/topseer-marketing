@@ -1,0 +1,93 @@
+---
+import "../styles/client.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  client: string;
+  clientLabel: string;
+  currentPath?: string;
+  docs?: { href: string; label: string }[];
+}
+
+const {
+  title,
+  description = "Client documentation",
+  client,
+  clientLabel,
+  currentPath = Astro.url.pathname,
+  docs = [],
+} = Astro.props;
+
+const isIndex = currentPath.replace(/\/$/, "").endsWith(`/clients/${client}`);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <title>{title} · {clientLabel}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/topseer-monogram.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="client">
+      <header class="client__head">
+        <div class="client__shell">
+          <a class="client__brand" href={`/clients/${client}/`}>
+            <img src="/topseer-monogram.png" alt="" width="32" height="32" />
+            <span class="client__brand-name">Topseer · {clientLabel}</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="client__main">
+        <div class="client__shell client__layout">
+          <aside>
+            <p class="client__sidebar-k">Documents</p>
+            <h1 class="client__sidebar-title">{clientLabel}</h1>
+            {
+              docs.length > 0 && (
+                <ul class="client__nav">
+                  <li>
+                    <a href={`/clients/${client}/`} aria-current={isIndex ? "page" : undefined}>
+                      Index
+                    </a>
+                  </li>
+                  {docs.map((doc) => (
+                    <li>
+                      <a
+                        href={doc.href}
+                        aria-current={currentPath === doc.href ? "page" : undefined}
+                      >
+                        {doc.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+          </aside>
+
+          <article class="client__content">
+            <slot />
+          </article>
+        </div>
+      </main>
+
+      <footer class="client__foot">
+        <div class="client__shell">
+          <p>Confidential · Topseer Tech Private Limited · Not for public distribution</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

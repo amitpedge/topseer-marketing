@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+import "../styles/marketing.css";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogTitle?: string;
+}
+
+const {
+  title,
+  description = "Topseer builds pre-cooked AI agents for enterprise — frozen at the version you approve.",
+  ogTitle,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const origin = (Astro.site?.toString() ?? "https://topseer.tech/").replace(/\/$/, "");
+const pageTitle = title.includes("Topseer") ? title : `${title} · Topseer`;
+
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Topseer",
+  legalName: "Topseer Tech Private Limited",
+  url: origin + "/",
+  logo: origin + "/topseer-monogram.png",
+  description,
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/topseer-monogram.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Topseer" />
+    <meta property="og:title" content={ogTitle ?? pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
+  </head>
+  <body>
+    <div class="site">
+      <SiteNav />
+      <main>
+        <slot />
+      </main>
+      <SiteFooter />
+    </div>
+  </body>
+</html>
