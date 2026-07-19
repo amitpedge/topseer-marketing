@@ -15,9 +15,9 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(31, 58, 61, 0.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(247, 240, 221, 0.08);
+  background: var(--cream);
+  border-bottom: 1px solid var(--hairline);
+  box-shadow: 0 1px 0 rgba(31, 58, 61, 0.04);
 }
 
 .nav__inner {
@@ -32,12 +32,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  color: var(--on-dark);
+  color: var(--petrol);
   text-decoration: none;
 }
 
 .nav__brand:hover {
   text-decoration: none;
+  color: var(--petrol);
 }
 
 .nav__brand img {
@@ -61,7 +62,7 @@
 
 .nav__link {
   padding: 0.45rem 0.75rem;
-  color: rgba(247, 240, 221, 0.78);
+  color: var(--muted);
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 600;
@@ -70,9 +71,13 @@
 
 .nav__link:hover,
 .nav__link[aria-current="page"] {
-  color: var(--on-dark);
-  background: rgba(247, 240, 221, 0.08);
+  color: var(--petrol);
+  background: rgba(31, 58, 61, 0.06);
   text-decoration: none;
+}
+
+.nav__link[aria-current="page"] {
+  font-weight: 700;
 }
 
 .nav__cta {
