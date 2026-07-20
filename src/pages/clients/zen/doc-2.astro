@@ -1,25 +1,20 @@
 ---
 import ClientDocLayout from "../../../layouts/ClientDocLayout.astro";
+import { client, clientLabel, zenDocs } from "../../../lib/clients/zen";
 
-const client = "zen";
-const clientLabel = "Zen";
-
-const docs = [
-  { href: `/clients/${client}/doc-1/`, label: "Doc 1" },
-  { href: `/clients/${client}/doc-2/`, label: "Doc 2" },
-];
+const doc = zenDocs[1];
 ---
 
 <ClientDocLayout
-  title="Doc 2"
-  description="Doc 2 for Zen."
+  title={doc.label}
+  description={doc.description}
   client={client}
   clientLabel={clientLabel}
   currentPath={Astro.url.pathname}
-  docs={docs}
+  docs={zenDocs}
 >
-  <p class="client__eyebrow">Doc 2</p>
-  <h2 class="client__title">Doc 2</h2>
+  <p class="client__eyebrow">{doc.label}</p>
+  <h2 class="client__title">{doc.label}</h2>
   <p class="client__lead">Placeholder content — replace with Zen documentation.</p>
 
   <div class="client__prose">

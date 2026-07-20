@@ -168,8 +168,91 @@ a:hover {
   font-weight: 700;
 }
 
+.client__prose h2:first-child {
+  margin-top: 0;
+}
+
+.client__prose h3 {
+  margin: 1.5rem 0 0.5rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 .client__prose p {
   margin: 0 0 1rem;
+}
+
+.client__prose ul,
+.client__prose ol {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.client__prose li + li {
+  margin-top: 0.35rem;
+}
+
+.client__prose hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.client__prose table {
+  width: 100%;
+  margin: 0 0 1.25rem;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.client__prose th,
+.client__prose td {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--hairline);
+  text-align: left;
+  vertical-align: top;
+}
+
+.client__prose th {
+  background: var(--cream);
+  font-weight: 700;
+}
+
+.client__prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--cream);
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+}
+
+.client__prose pre {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  background: var(--petrol);
+  color: var(--on-dark);
+  border-radius: var(--radius-soft);
+}
+
+.client__prose pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+}
+
+.client__prose strong {
+  font-weight: 700;
+}
+
+.client__prose em {
+  font-style: italic;
 }
 
 .client__index-list {

@@ -1,31 +1,33 @@
 ---
+import { getEntry, render } from "astro:content";
 import ClientDocLayout from "../../../layouts/ClientDocLayout.astro";
+import { client, clientLabel, zenDocs } from "../../../lib/clients/zen";
 
-const client = "zen";
-const clientLabel = "Zen";
+const entry = await getEntry("clients", "zen/entity-model");
 
-const docs = [
-  { href: `/clients/${client}/doc-1/`, label: "Doc 1" },
-  { href: `/clients/${client}/doc-2/`, label: "Doc 2" },
-];
+if (!entry) {
+  throw new Error("Missing Zen entity model content entry.");
+}
+
+const { Content } = await render(entry);
 ---
 
 <ClientDocLayout
-  title="Doc 1"
-  description="Doc 1 for Zen."
+  title={entry.data.title}
+  description={entry.data.description}
   client={client}
   clientLabel={clientLabel}
   currentPath={Astro.url.pathname}
-  docs={docs}
+  docs={zenDocs}
 >
-  <p class="client__eyebrow">Doc 1</p>
-  <h2 class="client__title">Doc 1</h2>
-  <p class="client__lead">Placeholder content — replace with Zen documentation.</p>
+  <p class="client__eyebrow">Zenlife · Phase 1</p>
+  <h2 class="client__title">{entry.data.title}</h2>
+  <p class="client__lead">
+    Finalized entities, relationships, and shorthand formulae. Approved terminology as of project
+    scoping (July 2026).
+  </p>
 
   <div class="client__prose">
-    <p>
-      This page is ready for your first Zen deliverable. Add sections, diagrams, or specs here as
-      Markdown or Astro content.
-    </p>
+    <Content />
   </div>
 </ClientDocLayout>

@@ -1,13 +1,6 @@
 ---
 import ClientDocLayout from "../../../layouts/ClientDocLayout.astro";
-
-const client = "zen";
-const clientLabel = "Zen";
-
-const docs = [
-  { href: `/clients/${client}/doc-1/`, label: "Doc 1" },
-  { href: `/clients/${client}/doc-2/`, label: "Doc 2" },
-];
+import { client, clientLabel, zenDocs } from "../../../lib/clients/zen";
 ---
 
 <ClientDocLayout
@@ -15,7 +8,7 @@ const docs = [
   description="Documentation index for Zen."
   client={client}
   clientLabel={clientLabel}
-  docs={docs}
+  docs={zenDocs}
 >
   <p class="client__eyebrow">Client documentation</p>
   <h2 class="client__title">Welcome</h2>
@@ -25,11 +18,11 @@ const docs = [
 
   <ul class="client__index-list">
     {
-      docs.map((doc) => (
+      zenDocs.map((doc) => (
         <li>
           <a class="client__index-link" href={doc.href}>
             {doc.label}
-            <span>Open document →</span>
+            <span>{doc.description}</span>
           </a>
         </li>
       ))
