@@ -8,12 +8,20 @@ interface Props {
   title: string;
   description?: string;
   ogTitle?: string;
+  ogType?: "website" | "article";
+  publishedTime?: string;
+  author?: string;
+  tags?: string[];
 }
 
 const {
   title,
   description = "Topseer builds pre-cooked AI agents for enterprise — frozen at the version you approve.",
   ogTitle,
+  ogType = "website",
+  publishedTime,
+  author,
+  tags = [],
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -29,6 +37,31 @@ const organization = {
   logo: origin + "/topseer-monogram.png",
   description,
 };
+
+const articleSchema =
+  ogType === "article" && publishedTime
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: title,
+        description,
+        datePublished: publishedTime,
+        author: {
+          "@type": "Organization",
+          name: author ?? "Topseer",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Topseer",
+          logo: {
+            "@type": "ImageObject",
+            url: origin + "/topseer-monogram.png",
+          },
+        },
+        mainEntityOfPage: canonical.toString(),
+        keywords: tags.join(", "),
+      }
+    : null;
 ---
 
 <!doctype html>
@@ -46,13 +79,21 @@ const organization = {
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Topseer" />
     <meta property="og:title" content={ogTitle ?? pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {author && ogType === "article" && <meta property="article:author" content={author} />}
+    {
+      tags.map((tag) => (
+        <meta property="article:tag" content={tag} />
+      ))
+    }
     <meta name="twitter:card" content="summary" />
     <script type="application/ld+json" set:html={JSON.stringify(organization)} />
+    {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
   </head>
   <body>
     <div class="site">

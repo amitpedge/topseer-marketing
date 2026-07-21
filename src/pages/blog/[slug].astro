@@ -1,0 +1,73 @@
+---
+import { getCollection, render } from "astro:content";
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import { formatBlogDate, getPostSlug, getPostUrl } from "../../lib/blog";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+
+  return posts.map((post) => ({
+    params: { slug: getPostSlug(post) },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const publishedTime = post.data.date.toISOString();
+---
+
+<MarketingLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogTitle={post.data.title}
+  ogType="article"
+  publishedTime={publishedTime}
+  author={post.data.author}
+  tags={post.data.tags}
+>
+  <section class="page-hero page-hero--compact">
+    <div class="shell">
+      <p class="eyebrow eyebrow--light">
+        <a class="blog-back" href="/blog/">Blog</a>
+      </p>
+      <h1 class="display display--light">{post.data.title}</h1>
+      <p class="lead lead--light">{post.data.description}</p>
+      <p class="blog-byline blog-byline--light">
+        <time datetime={publishedTime}>{formatBlogDate(post.data.date)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{post.data.author}</span>
+      </p>
+      {
+        post.data.tags.length > 0 && (
+          <ul class="blog-tags blog-tags--light" aria-label="Tags">
+            {post.data.tags.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="section page-body page-body--cream">
+    <div class="shell prose blog-article">
+      <Content />
+    </div>
+  </section>
+
+  <section class="section blog-cta">
+    <div class="shell blog-cta__inner">
+      <p class="eyebrow">Enterprise agents</p>
+      <h2 class="display">Pre-cooked agents. <em>Job-level economics.</em></h2>
+      <p class="lead">
+        Topseer ships version-pinned agents on a governed platform — so you can measure cost per
+        outcome in production, not just token rates on a pricing page.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--solid" href="mailto:hello@topseer.tech?subject=Demo%20request">Book a demo</a>
+        <a class="btn btn--ghost" href="/blog/">More articles</a>
+      </div>
+    </div>
+  </section>
+</MarketingLayout>

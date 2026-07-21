@@ -10,4 +10,17 @@ const clients = defineCollection({
   }),
 });
 
-export const collections = { clients };
+const blog = defineCollection({
+  loader: glob({ base: "./src/content/blog", pattern: "**/*.md" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    author: z.string().default("Topseer"),
+    slug: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { clients, blog };
