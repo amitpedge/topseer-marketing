@@ -17,7 +17,14 @@ export const zenDocs: ZenDoc[] = [
   },
   {
     href: `/clients/${client}/doc-2/`,
-    label: "Doc 2",
-    description: "Second Zen deliverable (placeholder).",
+    label: "Product Blueprint",
+    description: "Product vision, loops, phased delivery, and decision register.",
+    slug: "zen/client-blueprint",
+  },
+  {
+    href: `/clients/${client}/doc-3/`,
+    label: "AI Roadmap",
+    description: "AI strategy, roadmap specifics, and platform architecture.",
+    slug: "zen/ai-roadmap",
   },
 ];

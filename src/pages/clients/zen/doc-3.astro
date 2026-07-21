@@ -3,10 +3,10 @@ import { getEntry, render } from "astro:content";
 import ClientDocLayout from "../../../layouts/ClientDocLayout.astro";
 import { client, clientLabel, zenDocs } from "../../../lib/clients/zen";
 
-const entry = await getEntry("clients", "zen/client-blueprint");
+const entry = await getEntry("clients", "zen/ai-roadmap");
 
 if (!entry) {
-  throw new Error("Missing Zen product blueprint content entry.");
+  throw new Error("Missing Zen AI roadmap content entry.");
 }
 
 const { Content } = await render(entry);
@@ -20,10 +20,11 @@ const { Content } = await render(entry);
   currentPath={Astro.url.pathname}
   docs={zenDocs}
 >
-  <p class="client__eyebrow">Zen Life · Product</p>
+  <p class="client__eyebrow">Zenlife · AI</p>
   <h2 class="client__title">{entry.data.title}</h2>
   <p class="client__lead">
-    Product vision, loops, phased delivery, and the decision register for Zen Life stakeholders.
+    AI strategy, roadmap specifics, and platform architecture — with links to the{" "}
+    <a href="/clients/zen/doc-1/">Entity Model</a> where engineering detail lives.
   </p>
 
   <div class="client__prose">
