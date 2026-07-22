@@ -1,0 +1,61 @@
+---
+/** Product blueprint — five loops and the knowledge graph */
+---
+
+<figure class="client-flow-diagram" aria-labelledby="blueprint-loops-title">
+  <figcaption id="blueprint-loops-title" class="client-flow-diagram__caption">
+    The five loops — all feeding the health knowledge graph
+  </figcaption>
+  <svg viewBox="0 0 920 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+    <defs>
+      <marker id="bl-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0 0 L8 4 L0 8 Z" fill="#5E7C7B" />
+      </marker>
+    </defs>
+
+    <rect x="16" y="16" width="888" height="108" rx="12" fill="#F7F0DD" stroke="#B87333" stroke-width="1.25" />
+    <text x="32" y="42" fill="#B87333" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">DELIVERY SEQUENCE</text>
+
+    <rect x="32" y="54" width="148" height="56" rx="10" fill="#1F3A3D" />
+    <text x="106" y="76" text-anchor="middle" fill="#B87333" font-family="Barlow, sans-serif" font-size="10" font-weight="700">LOOP 1 · P1</text>
+    <text x="106" y="94" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Fulfillment</text>
+
+    <line x1="180" y1="82" x2="204" y2="82" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bl-arrow)" />
+
+    <rect x="204" y="54" width="148" height="56" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="278" y="76" text-anchor="middle" fill="#B87333" font-family="Barlow, sans-serif" font-size="10" font-weight="700">LOOP 2 · P2</text>
+    <text x="278" y="94" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Clinical review</text>
+
+    <line x1="352" y1="82" x2="376" y2="82" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bl-arrow)" />
+
+    <rect x="376" y="54" width="148" height="56" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="450" y="76" text-anchor="middle" fill="#B87333" font-family="Barlow, sans-serif" font-size="10" font-weight="700">LOOP 3 · P3</text>
+    <text x="450" y="94" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Interpretation</text>
+
+    <line x1="524" y1="82" x2="548" y2="82" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bl-arrow)" />
+
+    <rect x="548" y="54" width="148" height="56" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="622" y="76" text-anchor="middle" fill="#B87333" font-family="Barlow, sans-serif" font-size="10" font-weight="700">LOOP 4 · P4</text>
+    <text x="622" y="94" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Adherence</text>
+
+    <line x1="696" y1="82" x2="720" y2="82" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bl-arrow)" />
+
+    <rect x="720" y="54" width="168" height="56" rx="10" fill="#E6EDEC" stroke="#5E7C7B" />
+    <text x="804" y="76" text-anchor="middle" fill="#B87333" font-family="Barlow, sans-serif" font-size="10" font-weight="700">LOOP 5 · P5</text>
+    <text x="804" y="94" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Enrichment</text>
+
+    <line x1="460" y1="124" x2="460" y2="152" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bl-arrow)" />
+    <line x1="804" y1="110" x2="804" y2="136" stroke="#5E7C7B" stroke-width="1.5" stroke-dasharray="4 3" />
+    <path d="M804 136 L804 152 L520 152" stroke="#5E7C7B" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#bl-arrow)" />
+
+    <rect x="280" y="152" width="360" height="72" rx="12" fill="#1F3A3D" />
+    <text x="460" y="178" text-anchor="middle" fill="#B87333" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">HEALTH KNOWLEDGE GRAPH</text>
+    <text x="460" y="200" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="11" opacity="0.85">Single source of truth · facts · trends · provenance</text>
+
+    <rect x="16" y="244" width="280" height="40" rx="8" fill="#E6EDEC" stroke="#DED9CC" />
+    <text x="156" y="269" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Loop 5 runs continuously — all sources enrich the graph</text>
+
+    <rect x="624" y="244" width="280" height="40" rx="8" fill="#E6EDEC" stroke="#DED9CC" />
+    <text x="764" y="269" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Patient &amp; doctor health profiles are graph projections</text>
+  </svg>
+</figure>

@@ -1,0 +1,58 @@
+---
+/** Product blueprint — Loop 2 physician iterative workflow */
+---
+
+<figure class="client-flow-diagram" aria-labelledby="blueprint-clinical-title">
+  <figcaption id="blueprint-clinical-title" class="client-flow-diagram__caption">
+    Loop 2 — physician review is iterative, not one-pass
+  </figcaption>
+  <svg viewBox="0 0 920 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+    <defs>
+      <marker id="bc-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0 0 L8 4 L0 8 Z" fill="#5E7C7B" />
+      </marker>
+      <marker id="bc-arrow-rust" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0 0 L8 4 L0 8 Z" fill="#C8613A" />
+      </marker>
+    </defs>
+
+    <text x="16" y="28" fill="#5E7C7B" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">PHYSICIAN WORKFLOW · HUMAN + AI</text>
+
+    <rect x="16" y="44" width="96" height="48" rx="10" fill="#E6EDEC" stroke="#DED9CC" />
+    <text x="64" y="72" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Queued</text>
+
+    <line x1="112" y1="68" x2="136" y2="68" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bc-arrow)" />
+
+    <rect x="136" y="44" width="108" height="48" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="190" y="72" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">In review</text>
+
+    <line x1="244" y1="68" x2="268" y2="68" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bc-arrow)" />
+
+    <rect x="268" y="44" width="118" height="48" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="327" y="72" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Plan drafting</text>
+
+    <line x1="386" y1="68" x2="410" y2="68" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bc-arrow)" />
+
+    <rect x="410" y="44" width="118" height="48" rx="10" fill="#F7F0DD" stroke="#B87333" stroke-width="1.25" />
+    <text x="469" y="72" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Awaiting edits</text>
+
+    <line x1="528" y1="68" x2="552" y2="68" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bc-arrow)" />
+
+    <rect x="552" y="44" width="128" height="48" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="616" y="72" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Ready to publish</text>
+
+    <line x1="680" y1="68" x2="704" y2="68" stroke="#5E7C7B" stroke-width="2" marker-end="url(#bc-arrow)" />
+
+    <rect x="704" y="44" width="104" height="48" rx="10" fill="#1F3A3D" />
+    <text x="756" y="72" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="11" font-weight="700">Published</text>
+
+    <path d="M469 92 L469 128 L327 128 L327 92" stroke="#C8613A" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#bc-arrow-rust)" />
+    <text x="398" y="148" text-anchor="middle" fill="#C8613A" font-family="Barlow, sans-serif" font-size="10" font-weight="600">AI revision loop</text>
+
+    <rect x="16" y="168" width="888" height="40" rx="8" fill="#E6EDEC" stroke="#DED9CC" />
+    <text x="32" y="186" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="10" font-weight="600">AI drafts</text>
+    <text x="88" y="186" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">summary · marker extraction · Zen health plan</text>
+    <text x="32" y="200" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="10" font-weight="600">Physician</text>
+    <text x="96" y="200" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">validates · edits · signs off before patient sees plan</text>
+  </svg>
+</figure>

@@ -13,7 +13,7 @@ export const zenDocs: ZenDoc[] = [
     href: `/clients/${client}/doc-1/`,
     label: "Product Blueprint",
     description: "Product vision, loops, phased delivery, and decision register.",
-    slug: "zen/client-blueprint",
+    slug: "zen/client-blueprint-a",
   },
   {
     href: `/clients/${client}/doc-4/`,
