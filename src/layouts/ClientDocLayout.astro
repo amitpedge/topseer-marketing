@@ -89,41 +89,5 @@ const isIndex = currentPath.replace(/\/$/, "").endsWith(`/clients/${client}`);
         </div>
       </footer>
     </div>
-
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-
-      mermaid.initialize({
-        startOnLoad: false,
-        theme: "neutral",
-        securityLevel: "loose",
-        flowchart: { curve: "basis" },
-      });
-
-      async function renderClientDiagrams() {
-        const blocks = document.querySelectorAll(".client__prose pre > code.language-mermaid");
-
-        for (let i = 0; i < blocks.length; i += 1) {
-          const code = blocks[i];
-          const pre = code.parentElement;
-          if (!pre) continue;
-
-          const graph = code.textContent?.trim() ?? "";
-          const id = `client-mermaid-${i}`;
-
-          try {
-            const { svg } = await mermaid.render(id, graph);
-            const wrap = document.createElement("div");
-            wrap.className = "client__diagram";
-            wrap.innerHTML = svg;
-            pre.replaceWith(wrap);
-          } catch (error) {
-            console.error("Mermaid render failed:", error);
-          }
-        }
-      }
-
-      renderClientDiagrams();
-    </script>
   </body>
 </html>

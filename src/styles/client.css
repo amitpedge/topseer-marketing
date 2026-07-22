@@ -263,6 +263,30 @@ a:hover {
   margin: 0 auto;
 }
 
+.client-flow-diagram {
+  margin: 0 0 2rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: calc(var(--radius-soft) + 0.15rem);
+}
+
+.client-flow-diagram__caption {
+  margin: 0 0 1rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal-muted);
+}
+
+.client-flow-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .client__prose strong {
   font-weight: 700;
 }

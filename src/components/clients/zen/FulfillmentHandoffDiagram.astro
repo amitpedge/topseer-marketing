@@ -1,0 +1,65 @@
+---
+/** Loop 1 → Loop 2 boundary */
+---
+
+<figure class="client-flow-diagram" aria-labelledby="fulfillment-handoff-title">
+  <figcaption id="fulfillment-handoff-title" class="client-flow-diagram__caption">
+    Handoff — Fulfillment complete, clinical review begins
+  </figcaption>
+  <svg viewBox="0 0 920 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+    <defs>
+      <marker id="fh-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0 0 L8 4 L0 8 Z" fill="#B87333" />
+      </marker>
+    </defs>
+
+    <rect x="16" y="24" width="400" height="172" rx="12" fill="#1F3A3D" />
+    <text x="32" y="50" fill="#B87333" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">LOOP 1 · FULFILLMENT · PHASE 1</text>
+    <text x="32" y="68" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="11" opacity="0.75">Ends when order reaches delivered</text>
+
+    <rect x="32" y="86" width="104" height="52" rx="10" fill="#2A4A4E" stroke="#5E7C7B" />
+    <text x="84" y="110" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Patient profile</text>
+    <text x="84" y="126" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="10" opacity="0.75">UHID</text>
+
+    <line x1="136" y1="112" x2="162" y2="112" stroke="#5E7C7B" stroke-width="2" marker-end="url(#fh-arrow)" />
+
+    <rect x="162" y="86" width="118" height="52" rx="10" fill="#2A4A4E" stroke="#5E7C7B" />
+    <text x="221" y="110" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Order lifecycle</text>
+    <text x="221" y="126" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="10" opacity="0.75">booked → delivered</text>
+
+    <line x1="280" y1="112" x2="306" y2="112" stroke="#5E7C7B" stroke-width="2" marker-end="url(#fh-arrow)" />
+
+    <rect x="306" y="86" width="94" height="52" rx="10" fill="#F7F0DD" />
+    <text x="353" y="110" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">Zen report</text>
+    <text x="353" y="126" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">My orders</text>
+
+    <rect x="32" y="152" width="368" height="32" rx="8" fill="#2A4A4E" stroke="#5E7C7B" />
+    <text x="216" y="173" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="10">No AI · no Zen health plan in Phase 1</text>
+
+    <line x1="416" y1="110" x2="472" y2="110" stroke="#B87333" stroke-width="2.5" marker-end="url(#fh-arrow)" />
+    <text x="444" y="98" text-anchor="middle" fill="#B87333" font-family="Barlow, sans-serif" font-size="10" font-weight="700">under_review+</text>
+
+    <rect x="472" y="24" width="432" height="172" rx="12" fill="#F7F0DD" stroke="#B87333" stroke-width="1.5" />
+    <text x="488" y="50" fill="#B87333" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">LOOP 2 · CLINICAL REVIEW &amp; PLAN · PHASE 2</text>
+    <text x="488" y="68" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="11">Physician queue picks up delivered report</text>
+
+    <rect x="488" y="86" width="118" height="52" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="547" y="110" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Physician queue</text>
+    <text x="547" y="126" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Report intake</text>
+
+    <line x1="606" y1="112" x2="632" y2="112" stroke="#5E7C7B" stroke-width="2" marker-end="url(#fh-arrow)" />
+
+    <rect x="632" y="86" width="118" height="52" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="691" y="110" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Clinical review</text>
+    <text x="691" y="126" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Physician + AI</text>
+
+    <line x1="750" y1="112" x2="776" y2="112" stroke="#5E7C7B" stroke-width="2" marker-end="url(#fh-arrow)" />
+
+    <rect x="776" y="86" width="112" height="52" rx="10" fill="#1F3A3D" />
+    <text x="832" y="110" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="11" font-weight="700">Zen health plan</text>
+    <text x="832" y="126" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="10" opacity="0.75">Published to patient</text>
+
+    <rect x="488" y="152" width="400" height="32" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="688" y="173" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">States under_review and beyond belong to Loop 2, not Fulfillment</text>
+  </svg>
+</figure>

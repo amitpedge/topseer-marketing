@@ -19,6 +19,6 @@ export const zenDocs: ZenDoc[] = [
     href: `/clients/${client}/doc-4/`,
     label: "Fulfillment Loop",
     description: "Loop 1 Phase 1 — sign-up, UHID, order lifecycle, Zen report delivery.",
-    slug: "zen/fulfillment-loop",
+    slug: "zen/fulfillment-loop-a",
   },
 ];

@@ -1,32 +1,60 @@
 ---
 import { getEntry, render } from "astro:content";
 import ClientDocLayout from "../../../layouts/ClientDocLayout.astro";
+import FulfillmentHandoffDiagram from "../../../components/clients/zen/FulfillmentHandoffDiagram.astro";
+import FulfillmentJourneyDiagram from "../../../components/clients/zen/FulfillmentJourneyDiagram.astro";
+import FulfillmentLifecycleDiagram from "../../../components/clients/zen/FulfillmentLifecycleDiagram.astro";
 import { client, clientLabel, zenDocs } from "../../../lib/clients/zen";
 
-const entry = await getEntry("clients", "zen/fulfillment-loop");
+const [partA, partB, partC, partD, partE] = await Promise.all([
+  getEntry("clients", "zen/fulfillment-loop-a"),
+  getEntry("clients", "zen/fulfillment-loop-b"),
+  getEntry("clients", "zen/fulfillment-loop-c"),
+  getEntry("clients", "zen/fulfillment-loop-d"),
+  getEntry("clients", "zen/fulfillment-loop-e"),
+]);
 
-if (!entry) {
-  throw new Error("Missing Zen fulfillment loop content entry.");
+if (!partA || !partB || !partC || !partD || !partE) {
+  throw new Error("Missing Zen fulfillment loop content entries.");
 }
 
-const { Content } = await render(entry);
+const [
+  { Content: ContentA },
+  { Content: ContentB },
+  { Content: ContentC },
+  { Content: ContentD },
+  { Content: ContentE },
+] = await Promise.all([
+  render(partA),
+  render(partB),
+  render(partC),
+  render(partD),
+  render(partE),
+]);
 ---
 
 <ClientDocLayout
-  title={entry.data.title}
-  description={entry.data.description}
+  title={partA.data.title}
+  description={partA.data.description}
   client={client}
   clientLabel={clientLabel}
   currentPath={Astro.url.pathname}
   docs={zenDocs}
 >
   <p class="client__eyebrow">Zen Life · Loop 1</p>
-  <h2 class="client__title">{entry.data.title}</h2>
+  <h2 class="client__title">{partA.data.title}</h2>
   <p class="client__lead">
     Phase 1 fulfillment — from patient sign-up and UHID through diagnostic order lifecycle to Zen report delivery.
   </p>
 
   <div class="client__prose">
-    <Content />
+    <ContentA />
+    <FulfillmentJourneyDiagram />
+    <ContentB />
+    <ContentC />
+    <FulfillmentLifecycleDiagram />
+    <ContentD />
+    <FulfillmentHandoffDiagram />
+    <ContentE />
   </div>
 </ClientDocLayout>
