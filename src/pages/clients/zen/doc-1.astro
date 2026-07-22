@@ -3,10 +3,10 @@ import { getEntry, render } from "astro:content";
 import ClientDocLayout from "../../../layouts/ClientDocLayout.astro";
 import { client, clientLabel, zenDocs } from "../../../lib/clients/zen";
 
-const entry = await getEntry("clients", "zen/entity-model");
+const entry = await getEntry("clients", "zen/client-blueprint");
 
 if (!entry) {
-  throw new Error("Missing Zen entity model content entry.");
+  throw new Error("Missing Zen product blueprint content entry.");
 }
 
 const { Content } = await render(entry);
@@ -20,11 +20,10 @@ const { Content } = await render(entry);
   currentPath={Astro.url.pathname}
   docs={zenDocs}
 >
-  <p class="client__eyebrow">Zenlife · Phase 1</p>
+  <p class="client__eyebrow">Zen Life · Product</p>
   <h2 class="client__title">{entry.data.title}</h2>
   <p class="client__lead">
-    Finalized entities, relationships, and shorthand formulae. Approved terminology as of project
-    scoping (July 2026).
+    Product vision, loops, phased delivery, and the decision register for Zen Life stakeholders.
   </p>
 
   <div class="client__prose">

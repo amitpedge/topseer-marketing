@@ -6,7 +6,7 @@ order: 2
 
 **Version:** 1.3 · **Date:** July 2026  
 **Audience:** Zen Life stakeholders, product, clinical leads  
-**Technical appendix:** [Entity Model](/clients/zen/doc-1/) *(engineering — supplementary to business sign-off)*
+**Technical appendix:** Entity Model *(engineering — supplementary to business sign-off)*
 
 ---
 
@@ -66,7 +66,7 @@ Delivery is **loop by loop**, then multi-modality. AI enters at Phase 2; the kno
 | **3** | **Knowledge graph + Loop 3 — Interpretation & Guidance** | AI *(+ physician escalation TBD)* | Graph populated; patient-facing profile; grounded chat |
 | **4** | **Loop 4 — Plan & Adherence** | AI + Patient | Adherence tracking, nudges, retest triggers |
 | **5** | **Loop 5 — Continuous Enrichment** | Autonomous AI | Other reports, chat facts, ongoing graph updates |
-| **6+** | **Multi-modality & extended formats** | AI platform maturity | Voice/video UX; DICOM; wearables; partner scale — see [AI Roadmap](/clients/zen/doc-3/) |
+| **6+** | **Multi-modality & extended formats** | AI platform maturity | Voice/video UX; DICOM; wearables; partner scale — see AI Roadmap |
 
 ### 2.4 Full product vision (all phases complete)
 
@@ -77,7 +77,7 @@ Delivery is **loop by loop**, then multi-modality. AI enters at Phase 2; the kno
 | **Ops** | Appointments, Zen report intake, notifications, SLA |
 | **Super Admin** | Packages, partners, commercial terms, users, metrics |
 | **Lab** | Internal + external lab partners |
-| **AI** | Extraction, interpretation, chat, enrichment, multi-modality — per [AI Roadmap](/clients/zen/doc-3/) |
+| **AI** | Extraction, interpretation, chat, enrichment, multi-modality — per AI Roadmap |
 
 ### 2.5 Assumptions
 
@@ -215,7 +215,7 @@ Physician workflow is **not one-pass**. AI drafts plan → physician amends → 
 
 ## 5. Domain model overview
 
-*Product artefact names below; internal entity names in [Entity Model](/clients/zen/doc-1/) — see §5.2.*
+*Product artefact names below; internal entity names in Entity Model — see §5.2.*
 
 ### 5.1 Key artefacts & concepts
 
@@ -240,7 +240,7 @@ Physician workflow is **not one-pass**. AI drafts plan → physician amends → 
 - **Appointment ≠ Lab schedule slot** — slot is partner availability; appointment is the booking on an order.  
 - **Health profiles are projections** on the knowledge graph — not uploaded or edited as documents.  
 - **Marker trends** are computed over time — not manually entered.  
-- Internal entity names (`Report`, `Health document`, `Health plan`) in [Entity Model](/clients/zen/doc-1/) map to **Zen report**, **Other report**, and **Zen health plan** respectively.
+- Internal entity names (`Report`, `Health document`, `Health plan`) in Entity Model map to **Zen report**, **Other report**, and **Zen health plan** respectively.
 - **Zen Life** = the business and operator. **Zenlife** = the product/platform name. **Zen report / Zen health plan** = product artefacts.
 
 ### 5.3 Artefact permissions by user type
@@ -308,7 +308,7 @@ Physician workflow is **not one-pass**. AI drafts plan → physician amends → 
 | **Zen report** | Phase 1 ingest → Phase 2 extract → **Phase 3 graph** | File stored in Phase 1; AI extraction in Phase 2; merged into graph in Phase 3 |
 | **Zen health plan** | Phase 2 | On physician publish; feeds graph from Phase 3 onward |
 | **Knowledge graph** | **Phase 3** | Canonical store built before chat goes live |
-| **Chat thread** | Phase 3 | Grounded on graph; see [AI Roadmap](/clients/zen/doc-3/) |
+| **Chat thread** | Phase 3 | Grounded on graph; see AI Roadmap |
 | **Other report** | Phase 5 | User upload; autonomous enrichment pipeline |
 | **Wearable stream** | Phase 6+ | Time-series vitals |
 
@@ -330,7 +330,7 @@ Physician workflow is **not one-pass**. AI drafts plan → physician amends → 
 
 ## 8. AI — strategy, scope & platform
 
-*Phased AI rollout: no AI in Phase 1; AI begins Phase 2. Full detail in [AI Roadmap](/clients/zen/doc-3/).*
+*Phased AI rollout: no AI in Phase 1; AI begins Phase 2. Full detail in AI Roadmap.*
 
 ### 8.1 What AI does (by loop)
 
@@ -341,7 +341,7 @@ Physician workflow is **not one-pass**. AI drafts plan → physician amends → 
 | **Interpretation & Guidance** | Phase 3 | AI | Generate patient-facing profile text; grounded chat on graph | — *(see open questions below)* |
 | **Plan & Adherence** | Phase 4 | AI + Patient | Adherence insights; follow-up nudges | — *(see open questions below)* |
 | **Continuous Enrichment** | Phase 5 | Autonomous AI | OCR/classify other reports; extract markers; chat → graph facts | Low-confidence facts flagged |
-| **Multi-modality & formats** | Phase 6+ | AI platform maturity | Voice/video UX; DICOM; wearables — per [AI Roadmap](/clients/zen/doc-3/) | Per regulatory review |
+| **Multi-modality & formats** | Phase 6+ | AI platform maturity | Voice/video UX; DICOM; wearables — per AI Roadmap | Per regulatory review |
 
 **Open questions (Zen Life to decide):**
 
@@ -350,7 +350,7 @@ Physician workflow is **not one-pass**. AI drafts plan → physician amends → 
 
 ### 8.2 AI — full detail in one document
 
-All AI strategy, roadmap, and platform detail lives in **[AI Roadmap](/clients/zen/doc-3/)**:
+All AI strategy, roadmap, and platform detail lives in **AI Roadmap**:
 
 | Part | Contents |
 |------|----------|
@@ -362,7 +362,7 @@ All AI strategy, roadmap, and platform detail lives in **[AI Roadmap](/clients/z
 
 ### 8.3 AI platform (summary)
 
-Single **AI gateway** for all model calls — see **[AI Roadmap](/clients/zen/doc-3/) Part III** for full detail.
+Single **AI gateway** for all model calls — see **AI Roadmap Part III** for full detail.
 
 | Concern | Approach |
 |---------|----------|
@@ -536,7 +536,7 @@ Patient uploads other reports → AI classifies and extracts → facts merge int
 
 | Item | Value |
 |------|-------|
-| **Voice & video UX** | TTS summaries, ASR Q&A, async video — per [AI Roadmap](/clients/zen/doc-3/) UX modality track |
+| **Voice & video UX** | TTS summaries, ASR Q&A, async video — per AI Roadmap UX modality track |
 | **Extended data formats** | DICOM ingest + volume AI; radiology report NLP; wearables |
 | **Partner portal** | Labs self-serve appointments & Zen report upload |
 | **Mobile app** | Native iOS/Android |
@@ -544,7 +544,7 @@ Patient uploads other reports → AI classifies and extracts → facts merge int
 | **Insurance / hospitals** | Eligibility, referrals, FHIR |
 | **Automated payouts** | Partner settlement automation |
 | **Regulatory hardening** | Compliance by jurisdiction |
-| **AI platform maturity** | Full routing, drift, outcome-linked eval — [AI Roadmap](/clients/zen/doc-3/) Part III |
+| **AI platform maturity** | Full routing, drift, outcome-linked eval — AI Roadmap Part III |
 
 ---
 
@@ -636,8 +636,8 @@ Patient uploads other reports → AI classifies and extracts → facts merge int
 
 | Doc | Purpose | Audience |
 |-----|---------|----------|
-| [Entity Model](/clients/zen/doc-1/) | Full entities, relationships, formulae | Engineering, architecture |
-| [AI Roadmap](/clients/zen/doc-3/) | AI strategy, roadmap, platform (Parts I–III) | Product, clinical, engineering |
+| Entity Model | Full entities, relationships, formulae | Engineering, architecture |
+| AI Roadmap | AI strategy, roadmap, platform (Parts I–III) | Product, clinical, engineering |
 | *Glossary* | Extended term definitions | All |
 
 ---
@@ -653,4 +653,4 @@ Patient uploads other reports → AI classifies and extracts → facts merge int
 
 ---
 
-*End of product blueprint. For technical entity definitions, see [Entity Model](/clients/zen/doc-1/).*
+*End of product blueprint. For technical entity definitions, see Entity Model.*
