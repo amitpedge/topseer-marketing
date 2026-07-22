@@ -247,6 +247,22 @@ a:hover {
   font-size: inherit;
 }
 
+.client__diagram {
+  margin: 0 0 1.5rem;
+  padding: 1.25rem 1rem;
+  overflow-x: auto;
+  background: var(--cream);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-soft);
+}
+
+.client__diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
 .client__prose strong {
   font-weight: 700;
 }

@@ -15,4 +15,10 @@ export const zenDocs: ZenDoc[] = [
     description: "Product vision, loops, phased delivery, and decision register.",
     slug: "zen/client-blueprint",
   },
+  {
+    href: `/clients/${client}/doc-4/`,
+    label: "Fulfillment Loop",
+    description: "Loop 1 Phase 1 — sign-up, UHID, order lifecycle, Zen report delivery.",
+    slug: "zen/fulfillment-loop",
+  },
 ];
