@@ -1,0 +1,21 @@
+---
+const items = [
+  { actor: "Patient", note: "No Zen report upload · no AI interpretation · no Zen health plan · rebook deferred" },
+  { actor: "Ops", note: "No manual Zen report upload · no package or commercial edits" },
+  { actor: "Lab partner staff", note: "No catalog, pricing, or profile edits · no other labs’ slots" },
+  { actor: "Super Admin", note: "No day-to-day appointment ops · no Zen report submission" },
+  { actor: "Physician", note: "Not in Loop 1" },
+  { actor: "Clinician QA", note: "Not in Loop 1" },
+];
+---
+
+<div class="client-actor-grid" aria-label="Out of scope by actor">
+  {
+    items.map((item) => (
+      <article class="client-actor-card">
+        <h4 class="client-actor-card__title">{item.actor}</h4>
+        <p class="client-actor-card__can">{item.note}</p>
+      </article>
+    ))
+  }
+</div>

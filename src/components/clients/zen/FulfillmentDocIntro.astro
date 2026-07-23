@@ -1,0 +1,41 @@
+---
+/** Fulfillment doc — executive summary, at-a-glance cards, jump nav */
+---
+
+<section class="client-doc-intro" aria-labelledby="fulfillment-intro-title">
+  <h3 id="fulfillment-intro-title" class="client-callout__title">At a glance</h3>
+  <p class="client-doc-intro__summary">
+    <strong>Loop 1 Fulfillment</strong> takes a person from first visit through sign-up, booking, lab visit, and
+    Zen report delivery in My orders. Phase 1 has <strong>no AI</strong> and <strong>no Zen health plan</strong> — it
+    ends when the order reaches <code>delivered</code>, not when clinical review begins.
+  </p>
+
+  <div class="client-doc-intro__glance">
+    <div class="client-stat-card">
+      <span class="client-stat-card__label">Trigger</span>
+      <span class="client-stat-card__value">Patient books a diagnostic package</span>
+    </div>
+    <div class="client-stat-card">
+      <span class="client-stat-card__label">Ends when</span>
+      <span class="client-stat-card__value">Order is <code>delivered</code> · Zen report in My orders</span>
+    </div>
+    <div class="client-stat-card">
+      <span class="client-stat-card__label">Spine</span>
+      <span class="client-stat-card__value">Profile · UHID → Order → Zen report</span>
+    </div>
+    <div class="client-stat-card">
+      <span class="client-stat-card__label">Out of scope</span>
+      <span class="client-stat-card__value">AI · physician · chat · Zen health plan</span>
+    </div>
+  </div>
+
+  <p class="client-callout__title">Jump to</p>
+  <ul class="client-doc-intro__nav">
+    <li><a href="#fulfillment-journey-title">Journey</a></li>
+    <li><a href="#fulfillment-identity-title">UHID &amp; profile</a></li>
+    <li><a href="#fulfillment-lifecycle-title">Order lifecycle</a></li>
+    <li><a href="#fulfillment-swimlane-title">Actor swimlane</a></li>
+    <li><a href="#fulfillment-notifications-title">Notifications</a></li>
+    <li><a href="#fulfillment-handoff-title">Loop 2 handoff</a></li>
+  </ul>
+</section>

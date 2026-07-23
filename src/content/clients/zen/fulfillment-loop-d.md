@@ -6,24 +6,10 @@ order: 4
 
 ## 6. What each actor does *not* do in Phase 1 Fulfillment
 
-| Actor | Out of scope |
-|-------|----------------|
-| **Patient** | Create or upload Zen reports. View AI interpretation, patient-facing health profile, or Zen health plan *(Loop 2+)*. Rebook *(deferred)*. |
-| **Ops** | **Manual Zen report upload** *(deferred)*. Create/edit packages or commercial terms *(Super Admin only)*. |
-| **Lab partner staff** | Edit catalog, pricing, or patient profile fields. Manage slots for other lab partners. |
-| **Super Admin** | Day-to-day appointment operations *(Ops)*. Submit Zen reports *(lab portal)*. |
-| **Physician** | Not in Loop 1. |
-| **Clinician QA** | Not in Loop 1. |
+These boundaries keep Loop 1 focused on fulfillment only. Anything involving AI, physicians, or Zen health plans belongs to later loops.
 
 ---
 
 ## 7. Notifications *(by stage — illustrative)*
 
-| Transition | Typical notification |
-|------------|---------------------|
-| Profile created | Welcome / UHID confirmation *(optional)* |
-| → **`booked`** | Booking confirmed *(patient)* |
-| → **`confirmed`** | Appointment confirmed *(patient)* |
-| → **`in_progress`** | Optional: checked in *(patient)* |
-| → **`delivered`** | Zen report ready — view in My orders *(patient)* |
-| SLA breach on **`completed_at_lab`** | Internal chase *(Ops ↔ lab)* |
+Typical patient and internal messages across the Fulfillment journey. Exact copy and channels are Zen Life decisions.

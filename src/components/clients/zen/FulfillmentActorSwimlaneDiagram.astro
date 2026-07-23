@@ -1,0 +1,78 @@
+---
+/** Actor swimlane across order states */
+---
+
+<figure class="client-flow-diagram client-flow-diagram--large" aria-labelledby="fulfillment-swimlane-title">
+  <figcaption id="fulfillment-swimlane-title" class="client-flow-diagram__caption">
+    Actor swimlane — primary actions by order state
+  </figcaption>
+  <svg viewBox="0 0 920 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+    <text x="120" y="28" fill="#5E7C7B" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">ACTOR</text>
+    <text x="300" y="28" text-anchor="middle" fill="#5E7C7B" font-family="JetBrains Mono, monospace" font-size="10">booked</text>
+    <text x="420" y="28" text-anchor="middle" fill="#5E7C7B" font-family="JetBrains Mono, monospace" font-size="10">confirmed</text>
+    <text x="540" y="28" text-anchor="middle" fill="#5E7C7B" font-family="JetBrains Mono, monospace" font-size="10">in_progress</text>
+    <text x="660" y="28" text-anchor="middle" fill="#5E7C7B" font-family="JetBrains Mono, monospace" font-size="10">completed_at_lab</text>
+    <text x="780" y="28" text-anchor="middle" fill="#5E7C7B" font-family="JetBrains Mono, monospace" font-size="10">delivered</text>
+
+    <line x1="220" y1="16" x2="220" y2="392" stroke="#DED9CC" stroke-width="1" />
+    <line x1="360" y1="16" x2="360" y2="392" stroke="#DED9CC" stroke-width="1" />
+    <line x1="480" y1="16" x2="480" y2="392" stroke="#DED9CC" stroke-width="1" />
+    <line x1="600" y1="16" x2="600" y2="392" stroke="#DED9CC" stroke-width="1" />
+    <line x1="720" y1="16" x2="720" y2="392" stroke="#DED9CC" stroke-width="1" />
+
+    <rect x="16" y="44" width="188" height="72" rx="10" fill="#F7F0DD" stroke="#DED9CC" />
+    <text x="110" y="72" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="12" font-weight="700">Patient</text>
+    <text x="110" y="92" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Book · view · receive report</text>
+
+    <rect x="240" y="52" width="100" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="290" y="76" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">View · reschedule · cancel</text>
+    <rect x="360" y="52" width="100" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="410" y="76" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Reminders · view status</text>
+    <rect x="480" y="52" width="100" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="530" y="76" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">In progress at lab</text>
+    <rect x="600" y="52" width="100" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="650" y="76" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Awaiting report</text>
+    <rect x="720" y="52" width="168" height="56" rx="8" fill="#1F3A3D" />
+    <text x="804" y="76" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="9" font-weight="600">View Zen report in My orders</text>
+
+    <rect x="16" y="132" width="188" height="72" rx="10" fill="#E6EDEC" stroke="#DED9CC" />
+    <text x="110" y="160" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="12" font-weight="700">Ops</text>
+    <text x="110" y="180" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Monitor SLA · support · chase</text>
+
+    <rect x="240" y="140" width="100" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="290" y="164" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Confirm booking sent</text>
+    <rect x="360" y="140" width="100" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="410" y="164" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Monitor no-shows</text>
+    <rect x="480" y="140" width="100" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="530" y="164" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Monitor SLA</text>
+    <rect x="600" y="140" width="100" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="650" y="164" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Chase overdue reports</text>
+    <rect x="720" y="140" width="168" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="804" y="164" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Support access issues</text>
+
+    <rect x="16" y="220" width="188" height="72" rx="10" fill="#FFFFFF" stroke="#B87333" stroke-width="1.25" />
+    <text x="110" y="248" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="12" font-weight="700">Lab partner staff</text>
+    <text x="110" y="268" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Confirm · check-in · submit report</text>
+
+    <rect x="240" y="228" width="100" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="290" y="252" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">View upcoming appts</text>
+    <rect x="360" y="228" width="100" height="56" rx="8" fill="#F7F0DD" stroke="#B87333" />
+    <text x="410" y="246" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="9" font-weight="600">Confirm booking</text>
+    <text x="410" y="262" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="8">→ confirmed</text>
+    <rect x="480" y="228" width="100" height="56" rx="8" fill="#F7F0DD" stroke="#B87333" />
+    <text x="530" y="246" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="9" font-weight="600">Check in patient</text>
+    <text x="530" y="262" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="8">→ in_progress</text>
+    <rect x="600" y="228" width="100" height="56" rx="8" fill="#F7F0DD" stroke="#B87333" />
+    <text x="650" y="246" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="9" font-weight="600">Mark completed</text>
+    <text x="650" y="262" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="8">Submit report</text>
+    <rect x="720" y="228" width="168" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="804" y="252" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Read-only report view</text>
+
+    <rect x="16" y="308" width="188" height="72" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="110" y="336" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="12" font-weight="700">Super Admin</text>
+    <text x="110" y="356" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Exception overrides · audit</text>
+
+    <rect x="240" y="316" width="580" height="56" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="530" y="348" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">View all orders · reschedule or cancel on exception · archive on delivery</text>
+  </svg>
+</figure>

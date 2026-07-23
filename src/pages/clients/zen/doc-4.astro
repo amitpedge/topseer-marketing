@@ -1,20 +1,32 @@
 ---
 import { getEntry, render } from "astro:content";
-import ClientDocLayout from "../../../layouts/ClientDocLayout.astro";
+import FulfillmentActorSwimlaneDiagram from "../../../components/clients/zen/FulfillmentActorSwimlaneDiagram.astro";
+import FulfillmentDocIntro from "../../../components/clients/zen/FulfillmentDocIntro.astro";
 import FulfillmentHandoffDiagram from "../../../components/clients/zen/FulfillmentHandoffDiagram.astro";
+import FulfillmentIdentityLayersDiagram from "../../../components/clients/zen/FulfillmentIdentityLayersDiagram.astro";
 import FulfillmentJourneyDiagram from "../../../components/clients/zen/FulfillmentJourneyDiagram.astro";
 import FulfillmentLifecycleDiagram from "../../../components/clients/zen/FulfillmentLifecycleDiagram.astro";
+import FulfillmentMatrixReference from "../../../components/clients/zen/FulfillmentMatrixReference.astro";
+import FulfillmentNotificationsDiagram from "../../../components/clients/zen/FulfillmentNotificationsDiagram.astro";
+import FulfillmentOutOfScopeCards from "../../../components/clients/zen/FulfillmentOutOfScopeCards.astro";
+import FulfillmentProfileActorCards from "../../../components/clients/zen/FulfillmentProfileActorCards.astro";
+import FulfillmentScopeSummary from "../../../components/clients/zen/FulfillmentScopeSummary.astro";
+import FulfillmentSignUpChecklist from "../../../components/clients/zen/FulfillmentSignUpChecklist.astro";
+import FulfillmentStepCards from "../../../components/clients/zen/FulfillmentStepCards.astro";
+import FulfillmentUhidCallout from "../../../components/clients/zen/FulfillmentUhidCallout.astro";
+import ClientDocLayout from "../../../layouts/ClientDocLayout.astro";
 import { client, clientLabel, zenDocs } from "../../../lib/clients/zen";
 
-const [partA, partB, partC, partD, partE] = await Promise.all([
+const [partA, partB, partC, partD, partE, partF] = await Promise.all([
   getEntry("clients", "zen/fulfillment-loop-a"),
   getEntry("clients", "zen/fulfillment-loop-b"),
   getEntry("clients", "zen/fulfillment-loop-c"),
   getEntry("clients", "zen/fulfillment-loop-d"),
   getEntry("clients", "zen/fulfillment-loop-e"),
+  getEntry("clients", "zen/fulfillment-loop-f"),
 ]);
 
-if (!partA || !partB || !partC || !partD || !partE) {
+if (!partA || !partB || !partC || !partD || !partE || !partF) {
   throw new Error("Missing Zen fulfillment loop content entries.");
 }
 
@@ -24,12 +36,14 @@ const [
   { Content: ContentC },
   { Content: ContentD },
   { Content: ContentE },
+  { Content: ContentF },
 ] = await Promise.all([
   render(partA),
   render(partB),
   render(partC),
   render(partD),
   render(partE),
+  render(partF),
 ]);
 ---
 
@@ -47,14 +61,31 @@ const [
     Phase 1 fulfillment — from patient sign-up and UHID through diagnostic order lifecycle to Zen report delivery.
   </p>
 
+  <FulfillmentDocIntro />
+
   <div class="client__prose">
     <ContentA />
+    <FulfillmentScopeSummary />
+    <FulfillmentStepCards />
     <FulfillmentJourneyDiagram />
     <ContentB />
+    <FulfillmentIdentityLayersDiagram />
+    <FulfillmentUhidCallout />
+    <h3>3.3 Patient profile — Phase 1 fields *(Fulfillment minimum)*</h3>
+    <p>Collected or assigned during sign up (Product Blueprint §3.2):</p>
+    <FulfillmentSignUpChecklist />
+    <h3>3.4 Profile × actor actions *(Phase 1)*</h3>
+    <p>What each actor can do on the patient profile during Loop 1 *(not on a specific order)*:</p>
+    <FulfillmentProfileActorCards />
     <ContentC />
     <FulfillmentLifecycleDiagram />
+    <FulfillmentActorSwimlaneDiagram />
+    <FulfillmentMatrixReference />
     <ContentD />
-    <FulfillmentHandoffDiagram />
+    <FulfillmentOutOfScopeCards />
+    <FulfillmentNotificationsDiagram />
     <ContentE />
+    <FulfillmentHandoffDiagram />
+    <ContentF />
   </div>
 </ClientDocLayout>

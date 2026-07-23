@@ -1,0 +1,62 @@
+---
+const steps = [
+  {
+    num: "Step 1",
+    title: "Discover",
+    actor: "Patient (anonymous)",
+    outcome: "Browse packages and how Zenlife works",
+    status: "No profile yet",
+  },
+  {
+    num: "Step 2",
+    title: "Sign up & profile",
+    actor: "Patient",
+    outcome: "User created via OTP · Patient profile with UHID",
+    status: "UHID assigned",
+    highlight: true,
+  },
+  {
+    num: "Step 3",
+    title: "Book & pay",
+    actor: "Patient",
+    outcome: "Diagnostic order + appointment · payment captured",
+    status: "paid → booked",
+  },
+  {
+    num: "Step 4",
+    title: "Test day",
+    actor: "Patient + Lab partner",
+    outcome: "Check-in at lab · tests completed",
+    status: "in_progress",
+  },
+  {
+    num: "Step 5",
+    title: "Wait",
+    actor: "Patient",
+    outcome: "Order moves through report processing states",
+    status: "completed_at_lab → reports_received",
+  },
+  {
+    num: "Step 6",
+    title: "Zen report ready",
+    actor: "Lab partner → Patient",
+    outcome: "Report visible in My orders · Loop 1 complete",
+    status: "delivered",
+    highlight: true,
+  },
+];
+---
+
+<div class="client-step-grid" aria-label="Phase 1 end-to-end steps">
+  {
+    steps.map((step) => (
+      <article class:list={["client-step-card", step.highlight && "client-step-card--highlight"]}>
+        <span class="client-step-card__num">{step.num}</span>
+        <span class="client-step-card__title">{step.title}</span>
+        <span class="client-step-card__meta">{step.actor}</span>
+        <span class="client-step-card__outcome">{step.outcome}</span>
+        <span class="client-step-card__status">{step.status}</span>
+      </article>
+    ))
+  }
+</div>

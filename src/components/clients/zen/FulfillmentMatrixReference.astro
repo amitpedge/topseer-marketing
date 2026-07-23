@@ -1,0 +1,93 @@
+---
+/** Collapsible full stage × actor matrix */
+---
+
+<details class="client-details">
+  <summary class="client-details__summary">Show full stage × actor matrix (reference)</summary>
+  <div class="client-details__body">
+    <table>
+      <thead>
+        <tr>
+          <th>Order state</th>
+          <th>Patient</th>
+          <th>Ops</th>
+          <th>Lab partner staff</th>
+          <th>Super Admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>booked</strong> <em>(slot reserved; payment captured)</em></td>
+          <td><strong>View</strong> order &amp; appointment in My orders (profile / UHID shown). <strong>Reschedule</strong> own appointment (if policy allows). <strong>Cancel</strong> own order (refund per policy O4).</td>
+          <td><strong>View</strong> order, UHID, &amp; patient record. <strong>Reschedule</strong> appointment. <strong>Cancel</strong> order. <strong>Send</strong> booking confirmation. <strong>Monitor</strong> day-of schedule.</td>
+          <td><strong>View</strong> upcoming appointments (patient name, UHID, package). <strong>Confirm</strong> → <code>confirmed</code>. <strong>Manage</strong> lab schedule slots &amp; capacity (lab-level).</td>
+          <td><strong>View</strong> all orders. <strong>Reschedule</strong> or <strong>cancel</strong> (exception). <strong>View</strong> catalog, partners, payout status (not edit catalog here).</td>
+        </tr>
+        <tr>
+          <td><strong>confirmed</strong> <em>(lab acknowledged booking)</em></td>
+          <td><strong>View</strong> order status &amp; appointment. <strong>Receive</strong> reminders. <strong>Reschedule</strong> or <strong>cancel</strong> own order (per policy).</td>
+          <td><strong>View</strong> order &amp; UHID. <strong>Reschedule</strong> or <strong>cancel</strong> on patient’s behalf. <strong>Monitor</strong> no-shows &amp; SLA.</td>
+          <td><strong>View</strong> appointment (UHID for check-in). <strong>Check in</strong> patient → <code>in_progress</code>.</td>
+          <td><strong>View</strong> order. <strong>Reschedule</strong> or <strong>cancel</strong> (override).</td>
+        </tr>
+        <tr>
+          <td><strong>in_progress</strong> <em>(patient at lab; tests underway)</em></td>
+          <td><strong>View</strong> status (e.g. “In progress at lab”). Typically <strong>cannot</strong> reschedule or cancel (contact support).</td>
+          <td><strong>View</strong> order. <strong>Monitor</strong> SLA. <strong>Cancel</strong> only on exception.</td>
+          <td><strong>View</strong> appointment. <strong>Mark completed at lab</strong> → <code>completed_at_lab</code>.</td>
+          <td><strong>View</strong> order. <strong>Override</strong> state or <strong>cancel</strong> on exception.</td>
+        </tr>
+        <tr>
+          <td><strong>completed_at_lab</strong> <em>(tests done; report not yet submitted)</em></td>
+          <td><strong>View</strong> status (“Processing — awaiting report”). <strong>Wait</strong> — no Zen report yet.</td>
+          <td><strong>View</strong> order &amp; UHID. <strong>Monitor</strong> 24–48h report SLA (O2). <strong>Chase</strong> overdue reports with lab.</td>
+          <td><strong>View</strong> order (match report to UHID). <strong>Submit Zen report</strong> via lab portal → <code>reports_received</code>.</td>
+          <td><strong>View</strong> order &amp; SLA dashboard. <strong>Intervene</strong> on stuck orders.</td>
+        </tr>
+        <tr>
+          <td><strong>reports_received</strong> <em>(Zen report submitted; system processing)</em></td>
+          <td><strong>View</strong> status (“Report received — preparing”). Cannot open final report yet.</td>
+          <td><strong>View</strong> order &amp; intake status. <strong>Monitor</strong> processing. <strong>Notify</strong> when ready.</td>
+          <td><strong>View</strong> submitted report (UHID on record). <strong>Update / re-submit</strong> if correction needed.</td>
+          <td><strong>View</strong> order. <strong>Exceptional archive / remove</strong> Zen report (audit retained).</td>
+        </tr>
+        <tr>
+          <td><strong>delivered</strong> <em>(Zen report ready — Fulfillment complete)</em></td>
+          <td><strong>View</strong> Zen report in My orders (PDF / viewer). Order complete. (No Zen health plan in Phase 1.)</td>
+          <td><strong>View</strong> order, report, UHID. <strong>Support</strong> access issues.</td>
+          <td><strong>View</strong> submitted report (read-only).</td>
+          <td><strong>View</strong> order, report, payout. <strong>Archive</strong> on exception. Payout typically automatic.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>Exception states</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Order state</th>
+          <th>Patient</th>
+          <th>Ops</th>
+          <th>Lab partner staff</th>
+          <th>Super Admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>cancelled</strong></td>
+          <td><strong>View</strong> cancelled order &amp; refund status</td>
+          <td><strong>Cancel</strong> + notify patient</td>
+          <td><strong>View</strong> only</td>
+          <td><strong>Cancel</strong> / override; audit</td>
+        </tr>
+        <tr>
+          <td><strong>refunded</strong></td>
+          <td><strong>View</strong> refund confirmation</td>
+          <td><strong>View</strong> reconciliation</td>
+          <td>—</td>
+          <td><strong>View</strong> payment &amp; payout records</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</details>

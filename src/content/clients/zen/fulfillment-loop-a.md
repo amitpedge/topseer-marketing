@@ -12,14 +12,7 @@ order: 4
 
 ## 1. Scope
 
-| | |
-|--|--|
-| **Loop** | Loop 1 — Fulfillment |
-| **Phase** | Phase 1 only |
-| **AI** | None — ingest and store Zen report; patient views as delivered |
-| **Trigger** | Patient books a diagnostic package *(requires an active patient profile)* |
-| **Ends when** | Diagnostic order reaches **`delivered`** — Zen report is in Zenlife and visible to the patient *(e.g. under My orders)* |
-| **Spine entities** | **Patient profile** *(identity)* → **Diagnostic order** *(commerce & fulfillment)* → **Zen report** *(clinical artefact)* |
+Loop 1 covers everything from first visit through Zen report delivery. The spine of Fulfillment is **patient profile (UHID) → diagnostic order → Zen report**.
 
 ### Locked decisions *(this doc)*
 
@@ -33,15 +26,4 @@ order: 4
 
 ## 2. End-to-end sequence *(Phase 1)*
 
-Fulfillment is not only the order lifecycle — it starts when a person becomes a **registered patient** in Zenlife. The sequence below is the correct order of operations.
-
-| Step | Stage | Primary actor | Outcome |
-|------|-------|---------------|---------|
-| **1** | **Discover** | Patient *(anonymous)* | Browses packages and how Zenlife works |
-| **2** | **Sign up & profile** | Patient | **User** created (OTP) → **Patient profile** created with **UHID** |
-| **3** | **Book & pay** | Patient | **Diagnostic order** + **Appointment**; payment captured |
-| **4** | **Test day** | Patient + Lab partner | Check-in → tests at lab |
-| **5** | **Wait** | Patient | Order progresses **`completed_at_lab` → `reports_received`** |
-| **6** | **Zen report ready** | Lab partner → Patient | Order **`delivered`**; report visible in **My orders** |
-
-Steps **1–2** happen before any order exists. Steps **3–6** follow the diagnostic order lifecycle in §4.
+Fulfillment is not only the order lifecycle — it starts when a person becomes a **registered patient** in Zenlife. Steps **1–2** happen before any order exists. Steps **3–6** follow the diagnostic order lifecycle in §4.

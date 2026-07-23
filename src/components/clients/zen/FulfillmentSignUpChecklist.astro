@@ -1,0 +1,24 @@
+---
+const fields = [
+  { label: "UHID", note: "System auto-generates at profile creation" },
+  { label: "Mobile number", note: "OTP verification · login on User" },
+  { label: "Gender", note: "Package eligibility gates" },
+  { label: "Age / date of birth", note: "Eligibility gates · field TBD with Zen Life" },
+  { label: "Consent", note: "Terms, privacy, health-data processing (L3)" },
+  { label: "Name", note: "Display and lab-facing identity" },
+  { label: "Payment profile", note: "Created or linked at first payment" },
+];
+---
+
+<div class="client-checklist" aria-label="Phase 1 sign-up fields">
+  {
+    fields.map((field) => (
+      <div class="client-checklist__item">
+        <span class="client-checklist__mark" aria-hidden="true">✓</span>
+        <span>
+          <strong>{field.label}</strong> — {field.note}
+        </span>
+      </div>
+    ))
+  }
+</div>

@@ -1,0 +1,42 @@
+---
+/** Notification timeline aligned to order states */
+---
+
+<figure class="client-flow-diagram client-flow-diagram--large" aria-labelledby="fulfillment-notifications-title">
+  <figcaption id="fulfillment-notifications-title" class="client-flow-diagram__caption">
+    Notifications — illustrative patient and internal touchpoints
+  </figcaption>
+  <svg viewBox="0 0 920 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+    <line x1="120" y1="40" x2="120" y2="260" stroke="#DED9CC" stroke-width="2" />
+
+    <circle cx="120" cy="56" r="8" fill="#B87333" />
+    <rect x="148" y="36" width="740" height="40" rx="8" fill="#E6EDEC" stroke="#DED9CC" />
+    <text x="164" y="54" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">Profile created</text>
+    <text x="164" y="68" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Welcome / UHID confirmation (optional)</text>
+
+    <circle cx="120" cy="96" r="8" fill="#1F3A3D" />
+    <rect x="148" y="76" width="740" height="40" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="164" y="94" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">→ booked</text>
+    <text x="164" y="108" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Booking confirmed (patient)</text>
+
+    <circle cx="120" cy="136" r="8" fill="#1F3A3D" />
+    <rect x="148" y="116" width="740" height="40" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="164" y="134" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">→ confirmed</text>
+    <text x="164" y="148" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Appointment confirmed (patient)</text>
+
+    <circle cx="120" cy="176" r="8" fill="#5E7C7B" />
+    <rect x="148" y="156" width="740" height="40" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="164" y="174" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">→ in_progress</text>
+    <text x="164" y="188" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Optional checked-in message (patient)</text>
+
+    <circle cx="120" cy="216" r="8" fill="#C8613A" />
+    <rect x="148" y="196" width="740" height="40" rx="8" fill="#F7F0DD" stroke="#C8613A" stroke-width="1" />
+    <text x="164" y="214" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">SLA breach on completed_at_lab</text>
+    <text x="164" y="228" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Internal chase (Ops ↔ lab)</text>
+
+    <circle cx="120" cy="256" r="8" fill="#1F3A3D" />
+    <rect x="148" y="236" width="740" height="40" rx="8" fill="#1F3A3D" />
+    <text x="164" y="254" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="11" font-weight="700">→ delivered</text>
+    <text x="164" y="268" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="10" opacity="0.85">Zen report ready — view in My orders (patient)</text>
+  </svg>
+</figure>

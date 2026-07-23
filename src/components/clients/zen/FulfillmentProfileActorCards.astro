@@ -1,0 +1,40 @@
+---
+const actors = [
+  {
+    name: "Patient",
+    can: "Create profile at sign-up · view own profile & UHID · edit demographics & consent · view own orders & reports",
+    cannot: "View other patients · edit UHID",
+  },
+  {
+    name: "Ops",
+    can: "View any profile & UHID · view all orders and reports · assist profile corrections (audit logged)",
+    cannot: "Create profiles on behalf of patients unless Zen Life decides otherwise",
+  },
+  {
+    name: "Lab partner staff",
+    can: "View identity fields needed for their lab appointments only (name, UHID, gender, age, package)",
+    cannot: "Browse all patients · edit profile",
+  },
+  {
+    name: "Super Admin",
+    can: "View all profiles & UHIDs · manage accounts & roles · soft-deactivate on exception",
+    cannot: "Impersonate patient without audit",
+  },
+];
+---
+
+<div class="client-actor-grid" aria-label="Profile actions by actor">
+  {
+    actors.map((actor) => (
+      <article class="client-actor-card">
+        <h4 class="client-actor-card__title">{actor.name}</h4>
+        <p class="client-actor-card__can">
+          <strong>Can:</strong> {actor.can}
+        </p>
+        <p class="client-actor-card__cannot">
+          <strong>Cannot:</strong> {actor.cannot}
+        </p>
+      </article>
+    ))
+  }
+</div>
