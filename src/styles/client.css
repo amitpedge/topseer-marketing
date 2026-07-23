@@ -297,6 +297,10 @@ a:hover {
   min-height: 360px;
 }
 
+.client-flow-diagram--tall svg {
+  min-height: 480px;
+}
+
 .client-doc-intro {
   margin: 0 0 2.5rem;
   padding: 1.5rem 1.35rem;

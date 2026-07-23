@@ -1,42 +1,119 @@
 ---
-/** Notification timeline aligned to order states */
+/** Notification touchpoints mapped to the order lifecycle */
 ---
 
-<figure class="client-flow-diagram client-flow-diagram--large" aria-labelledby="fulfillment-notifications-title">
+<figure class="client-flow-diagram client-flow-diagram--large client-flow-diagram--tall" aria-labelledby="fulfillment-notifications-title">
   <figcaption id="fulfillment-notifications-title" class="client-flow-diagram__caption">
     Notifications — illustrative patient and internal touchpoints
   </figcaption>
-  <svg viewBox="0 0 920 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
-    <line x1="120" y1="40" x2="120" y2="260" stroke="#DED9CC" stroke-width="2" />
+  <svg viewBox="0 0 920 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+    <defs>
+      <marker id="fn-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0 0 L8 4 L0 8 Z" fill="#5E7C7B" />
+      </marker>
+      <marker id="fn-arrow-rust" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0 0 L8 4 L0 8 Z" fill="#C8613A" />
+      </marker>
+    </defs>
 
-    <circle cx="120" cy="56" r="8" fill="#B87333" />
-    <rect x="148" y="36" width="740" height="40" rx="8" fill="#E6EDEC" stroke="#DED9CC" />
-    <text x="164" y="54" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">Profile created</text>
-    <text x="164" y="68" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Welcome / UHID confirmation (optional)</text>
+    <rect x="16" y="16" width="888" height="448" rx="12" fill="#FAFAF8" stroke="#DED9CC" />
 
-    <circle cx="120" cy="96" r="8" fill="#1F3A3D" />
-    <rect x="148" y="76" width="740" height="40" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
-    <text x="164" y="94" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">→ booked</text>
-    <text x="164" y="108" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Booking confirmed (patient)</text>
+    <text x="32" y="44" fill="#5E7C7B" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="1.3">MAPPED TO ORDER LIFECYCLE</text>
 
-    <circle cx="120" cy="136" r="8" fill="#1F3A3D" />
-    <rect x="148" y="116" width="740" height="40" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
-    <text x="164" y="134" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">→ confirmed</text>
-    <text x="164" y="148" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Appointment confirmed (patient)</text>
+    <rect x="720" y="26" width="78" height="22" rx="999" fill="#F7F0DD" stroke="#DED9CC" />
+    <text x="759" y="41" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="9" font-weight="700">Patient</text>
+    <rect x="806" y="26" width="82" height="22" rx="999" fill="#E6EDEC" stroke="#5E7C7B" />
+    <text x="847" y="41" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="9" font-weight="700">Internal</text>
 
-    <circle cx="120" cy="176" r="8" fill="#5E7C7B" />
-    <rect x="148" y="156" width="740" height="40" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
-    <text x="164" y="174" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">→ in_progress</text>
-    <text x="164" y="188" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Optional checked-in message (patient)</text>
+    <rect x="32" y="62" width="118" height="36" rx="8" fill="#E6EDEC" stroke="#DED9CC" />
+    <text x="91" y="85" text-anchor="middle" fill="#1F3A3D" font-family="JetBrains Mono, monospace" font-size="10">profile</text>
 
-    <circle cx="120" cy="216" r="8" fill="#C8613A" />
-    <rect x="148" y="196" width="740" height="40" rx="8" fill="#F7F0DD" stroke="#C8613A" stroke-width="1" />
-    <text x="164" y="214" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">SLA breach on completed_at_lab</text>
-    <text x="164" y="228" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Internal chase (Ops ↔ lab)</text>
+    <line x1="150" y1="80" x2="176" y2="80" stroke="#5E7C7B" stroke-width="2" marker-end="url(#fn-arrow)" />
 
-    <circle cx="120" cy="256" r="8" fill="#1F3A3D" />
-    <rect x="148" y="236" width="740" height="40" rx="8" fill="#1F3A3D" />
-    <text x="164" y="254" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="11" font-weight="700">→ delivered</text>
-    <text x="164" y="268" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="10" opacity="0.85">Zen report ready — view in My orders (patient)</text>
+    <rect x="176" y="62" width="96" height="36" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="224" y="85" text-anchor="middle" fill="#1F3A3D" font-family="JetBrains Mono, monospace" font-size="10">booked</text>
+
+    <line x1="272" y1="80" x2="298" y2="80" stroke="#5E7C7B" stroke-width="2" marker-end="url(#fn-arrow)" />
+
+    <rect x="298" y="62" width="108" height="36" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="352" y="85" text-anchor="middle" fill="#1F3A3D" font-family="JetBrains Mono, monospace" font-size="10">confirmed</text>
+
+    <line x1="406" y1="80" x2="432" y2="80" stroke="#5E7C7B" stroke-width="2" marker-end="url(#fn-arrow)" />
+
+    <rect x="432" y="62" width="118" height="36" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="491" y="85" text-anchor="middle" fill="#1F3A3D" font-family="JetBrains Mono, monospace" font-size="10">in_progress</text>
+
+    <line x1="550" y1="80" x2="576" y2="80" stroke="#5E7C7B" stroke-width="2" marker-end="url(#fn-arrow)" />
+
+    <rect x="576" y="62" width="142" height="36" rx="8" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="647" y="85" text-anchor="middle" fill="#1F3A3D" font-family="JetBrains Mono, monospace" font-size="10">completed_at_lab</text>
+
+    <line x1="718" y1="80" x2="744" y2="80" stroke="#5E7C7B" stroke-width="2" marker-end="url(#fn-arrow)" />
+
+    <rect x="744" y="62" width="128" height="36" rx="8" fill="#1F3A3D" />
+    <text x="808" y="85" text-anchor="middle" fill="#F7F0DD" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">delivered</text>
+
+    <line x1="91" y1="98" x2="91" y2="118" stroke="#B87333" stroke-width="2" />
+    <line x1="224" y1="98" x2="224" y2="118" stroke="#5E7C7B" stroke-width="2" />
+    <line x1="352" y1="98" x2="352" y2="118" stroke="#5E7C7B" stroke-width="2" />
+    <line x1="491" y1="98" x2="491" y2="118" stroke="#5E7C7B" stroke-width="2" />
+    <line x1="647" y1="98" x2="647" y2="118" stroke="#C8613A" stroke-width="2" stroke-dasharray="4 3" />
+    <line x1="808" y1="98" x2="808" y2="118" stroke="#1F3A3D" stroke-width="2" />
+
+    <rect x="32" y="118" width="118" height="88" rx="10" fill="#F7F0DD" stroke="#B87333" stroke-width="1.25" />
+    <text x="44" y="138" fill="#B87333" font-family="Barlow, sans-serif" font-size="9" font-weight="700" letter-spacing="1">PATIENT</text>
+    <text x="91" y="160" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="12" font-weight="700">Welcome</text>
+    <text x="91" y="178" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">UHID confirmation</text>
+    <text x="91" y="194" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9" font-style="italic">Optional</text>
+
+    <rect x="176" y="118" width="96" height="88" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="188" y="138" fill="#B87333" font-family="Barlow, sans-serif" font-size="9" font-weight="700" letter-spacing="1">PATIENT</text>
+    <text x="224" y="162" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="12" font-weight="700">Booking</text>
+    <text x="224" y="180" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">confirmed</text>
+    <text x="224" y="196" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Order + slot details</text>
+
+    <rect x="298" y="118" width="108" height="88" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="310" y="138" fill="#B87333" font-family="Barlow, sans-serif" font-size="9" font-weight="700" letter-spacing="1">PATIENT</text>
+    <text x="352" y="162" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="12" font-weight="700">Appointment</text>
+    <text x="352" y="180" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">confirmed</text>
+    <text x="352" y="196" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Reminder before test day</text>
+
+    <rect x="432" y="118" width="118" height="88" rx="10" fill="#FFFFFF" stroke="#DED9CC" stroke-dasharray="5 4" />
+    <text x="444" y="138" fill="#5E7C7B" font-family="Barlow, sans-serif" font-size="9" font-weight="700" letter-spacing="1">PATIENT</text>
+    <text x="491" y="162" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="12" font-weight="700">Checked in</text>
+    <text x="491" y="180" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">at lab</text>
+    <text x="491" y="196" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9" font-style="italic">Optional</text>
+
+    <rect x="576" y="118" width="142" height="88" rx="10" fill="#FFFFFF" stroke="#DED9CC" />
+    <text x="588" y="138" fill="#B87333" font-family="Barlow, sans-serif" font-size="9" font-weight="700" letter-spacing="1">PATIENT</text>
+    <text x="647" y="160" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">Processing</text>
+    <text x="647" y="178" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Awaiting report</text>
+    <text x="647" y="196" text-anchor="middle" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="9">Status update only</text>
+
+    <rect x="744" y="118" width="128" height="88" rx="10" fill="#1F3A3D" />
+    <text x="756" y="138" fill="#B87333" font-family="Barlow, sans-serif" font-size="9" font-weight="700" letter-spacing="1">PATIENT</text>
+    <text x="808" y="160" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="12" font-weight="700">Zen report ready</text>
+    <text x="808" y="178" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="10" opacity="0.85">View in My orders</text>
+    <text x="808" y="196" text-anchor="middle" fill="#F7F0DD" font-family="Barlow, sans-serif" font-size="9" opacity="0.7">Loop 1 complete</text>
+
+    <rect x="32" y="232" width="856" height="1" fill="#DED9CC" />
+
+    <text x="32" y="258" fill="#C8613A" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">INTERNAL · SLA EXCEPTION</text>
+
+    <rect x="32" y="272" width="856" height="92" rx="10" fill="#FFF8F2" stroke="#C8613A" stroke-width="1.25" />
+    <rect x="48" y="288" width="72" height="24" rx="999" fill="#E6EDEC" stroke="#5E7C7B" />
+    <text x="84" y="304" text-anchor="middle" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="9" font-weight="700">Internal</text>
+
+    <text x="140" y="304" fill="#1F3A3D" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">completed_at_lab</text>
+    <text x="140" y="324" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="11">SLA breach (24–48h report turnaround · policy O2)</text>
+    <text x="140" y="344" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="600">Ops chases lab</text>
+    <text x="248" y="344" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="11">↔ escalation between Ops and lab partner staff</text>
+
+    <path d="M647 206 L647 248 L140 248 L140 272" stroke="#C8613A" stroke-width="1.5" stroke-dasharray="5 4" fill="none" marker-end="url(#fn-arrow-rust)" />
+
+    <rect x="32" y="386" width="856" height="62" rx="10" fill="#E6EDEC" stroke="#DED9CC" />
+    <text x="48" y="410" fill="#1F3A3D" font-family="Barlow, sans-serif" font-size="11" font-weight="700">Reading notes</text>
+    <text x="48" y="430" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Illustrative only — exact copy, channel (SMS / push / email), and timing are Zen Life decisions (L3, O2).</text>
+    <text x="48" y="444" fill="#6E7A78" font-family="Barlow, sans-serif" font-size="10">Patient notifications align with order state transitions; internal chase is not patient-facing unless policy requires it.</text>
   </svg>
 </figure>
